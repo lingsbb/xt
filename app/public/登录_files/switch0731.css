@@ -1,0 +1,263 @@
+@charset "utf-8";
+/* CSS Document */
+.switch-wrapper {
+	display: inline-block;
+	width: 80%;
+	height: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.switch-item {
+	display: inline-block;
+	width: 102px;
+	height: auto;
+	margin: 20px;
+	cursor: pointer;
+	vertical-align: text-top;
+}
+
+.switch-item-small {
+	display: inline-block;
+	width: 142px;
+	height: auto;
+	margin: 5px;
+	/*cursor: pointer;*/
+	vertical-align: text-top;
+	padding-top: 10px;
+}
+
+.switch-homepage-item-small {
+	display: inline-block;
+	width: 100px;
+	height: auto;
+	margin: 10px;
+	cursor: pointer;
+	vertical-align: text-top;
+}
+
+.texthidden{
+	width:100px;
+	margin-top: 8px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.switch-item-consumer {
+  	display: block;
+  	margin-left: -50px;
+  	position: relative;
+  	left: 50%;
+  	cursor: pointer;
+		padding-bottom: 20px;
+}
+
+.switch-selected .switch-border, .switch-item-small:hover .switch-border {
+    -webkit-box-shadow: 0 0 25px #fff;
+    -moz-box-shadow: 0 0 25px #fff;
+    box-shadow: 0 0 25px #fff;
+}
+
+.switch-item-small:hover .switch-businessname-small {
+    color: #e6685b;
+}
+
+.switch-selected .switch-border, .switch-item:hover .switch-border {
+	-webkit-box-shadow: 0 0 25px #fff;
+	-moz-box-shadow: 0 0 25px #fff;
+	box-shadow: 0 0 25px #fff;
+}
+
+.switch-item:hover .switch-name {
+	color: #f23749;
+}
+
+.switch-border {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-color: #e1dfe0;
+	border-radius: 50px;
+	position: relative;
+	box-shadow: 1px 1px 10px 1px rgb(244, 242, 242);
+}
+
+.switch-logo {
+	position: absolute;
+	display: block;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	top: 50px;
+	left: 50px;
+	margin-top: -50px;
+	margin-left: -50px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	/*border: 3px solid #3c4d5c;*/
+}
+
+.switch-name {
+	text-align: center;
+	font-weight: 100;
+	display: block;
+	color: #2384d1;
+	font-size: 18px;
+	margin-top: 20px;
+	padding: 4px;
+}
+
+.switch-name-small {
+	text-align: center;
+	font-weight: 100;
+	display: block;
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #3c4d5c;
+	font-size: 18px;
+	margin-top: 5px;
+	padding: 4px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius:5px;
+	/*border: 2px solid #3c4d5c;*/
+}
+
+.switch-name-small:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 0px;
+}
+
+.switch-selected {
+	opacity: 1;
+}
+
+.switch-selected .switch-name {
+	color: #fff !important;
+	background-color: #f23749;
+	border-radius: 4px;
+}
+
+.switch-title {
+	color: #b0b0b0;
+	font-size: 24px;
+	text-align: center;
+	margin: 40px 0 40px 0;
+}
+
+.switch-title-small {
+	color: #4f4e4c;
+	font-size: 18px;
+	text-align: center;
+	margin: 24px 0 4px 0;
+}
+
+.switch-businessname-small {
+	color: #4f4e4c;
+	font-size: 16px;
+	text-align: center;
+	margin: 24px 0 4px 0;
+}
+
+.switch-yiqixie1 {
+	background-image: url(../images/name.png);
+}
+
+.switch-yiqixie2 {
+	background-image: url(../images/yiqixie.png);
+}
+
+.switch-yiqixie {
+	background-image: url(../images/yiqixie.png);
+}
+
+.switch-google {
+	background-image: url(../images/google.png);
+}
+
+.switch-nasa {
+	background-image: url(../images/nasa.png);
+}
+
+.switch-esa {
+	background-image: url(../images/esa.png);
+}
+
+.switch-nsa {
+	background-image: url(../images/nsa.png);
+}
+
+.switch-cmb {
+	background-image: url(../images/cmb.png);
+}
+
+.switch-ibm {
+	background-image: url(../images/ibm.png);
+}
+
+.switch-bayer {
+	background-image: url(../images/bayer.png);
+}
+
+.switch-bmw {
+	background-image: url(../images/bmw.png);
+}
+
+.switch-adidas {
+	background-image: url(../images/adidas.png);
+}
+
+.switch-lufthansa {
+	background-image: url(../images/lufthansa.png);
+}
+
+.switch-siemens {
+	background-image: url(../images/siemens.png);
+}
+
+.switch-telekom {
+	background-image: url(../images/telekom.png);
+}
+
+.qrcoder {
+	display: inline-block;
+	width: 205px;
+	height: 205px;
+	background: #fff url(../images/qrcode.png) no-repeat center center;
+	border-radius: 8px;
+}
+
+.switch-big-border {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background-color: #e1dfe0;
+	border-radius: 60px;
+	position: relative;
+}
+
+.switch-big-logo {
+	position: absolute;
+	display: block;
+	border-radius: 60px;
+	width: 120px;
+	height: 120px;
+	top: 50px;
+	left: 50px;
+	margin-top: -50px;
+	margin-left: -50px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	/*border: 3px solid #3c4d5c;*/
+	box-shadow: 1px 1px 10px 1px rgb(244, 242, 242);
+}
+
+.switch-big-title-small {
+	color: #4f4e4c;
+	font-size: 22px;
+	text-align: center;
+	margin: 26px 0 4px 0;
+}
