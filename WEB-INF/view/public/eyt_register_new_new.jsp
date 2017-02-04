@@ -1,7 +1,7 @@
-﻿<!--
+<!--
 	模块作者：刘霄
 	创建日期：2017-01-16
-	模块功能：登陆
+	模块功能：注册
 -->
 <%@page pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title> 登录</title>
+		<title> 注册</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="Beijing Qingyun Technology Co., Ltd">
@@ -27,6 +27,8 @@
 		<link rel="stylesheet" href="../app/public/登录_files/business_prod-2115764180.css">
 		<link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 		<style type="text/css">
+		.phcolor{ color:#999;}
+		
 		.help-block1 {
     	   	display: block;
 		    margin-top: 5px;
@@ -129,24 +131,31 @@
 									</div>
 									<div  class="cr-ai-ld-td">
 										<div id="divCheck" class="cr-ai-ld-ls-lt">
-											<label id="txtError" style="display:none;">账号或密码错误</label>
-											<label id="txtClose" style="display:none; ">账号已封停</label>
-											<label id="txtOut" style="display:none; ">用户已离职</label>
-											<label id="txtActive" style="display:none; ">账号未激活</label>
-											<label id="txtEmail-error1" style="display:none;" >请输入一个有效的账号或邮箱地址</label>
-											<label id="txtPassword-error1" style="display:none; ">密码至少6位</label>
+							                <label id="txtEmail-error1"  style="display:none">请输入一个有效的邮箱地址！</label>
+							                <label id="txtEmail-error2"  style="display:none">邮箱已注册！</label>
+							                <label id="txtTel-error1" style="display:none" >请输入一个有效的手机号！</label>
+               								<label id="txtTel-error2" style="display:none" >手机号已注册！</label>              								
+               								<label id="txtPassword-error1" style="display:none" >密码6位且只能是英文和数字！</label>
+											<label id="txtCode-error1" style="display:none" >验证码错误！</label>
 										</div>
-										<div class="cr-ai-ld-ho"><input id="txtAccount" placeholder="用户账号或邮箱" value="" type="text"  class="cr-ai-ld"></div>
+										<div class="cr-ai-ld-ho"><input id="txtEmail" name="txtEmail" placeholder="请输入邮箱" type="text"  class="cr-ai-ld"></div>
 										
-										<div class="cr-ai-ld-ho"><input id="txtPassword" type="password" value="" placeholder="请输入密码" class="cr-ai-ld"></div>
+										<div class="cr-ai-ld-ho"><input id="txtTel" name="txtTel" type="text" class="cr-ai-ld" placeholder="请输入手机号" /></div>
+											
+										<div class="cr-ai-ld-ho">
+											<input id="txtCode" name="txtCode" type="text" class="cr-ai-ld" style="width:76%;" placeholder="请输入短信验证码" />
+                							<input class="btn btn-primary" disabled="disabled" style="background-color:#428bca;border-color: #428bca; " type="button" id="btnSend" value="发送" />	
+                						</div>																			
 										
-										<div style="background-color:white;display:none;" class="form-group text-left" >
-                						 <label style="padding-left:25px;color:white;" ><input style="display:none;" type="checkbox" checked="checked" id="chkLogin">年内不再登录</label>
+										<div class="cr-ai-ld-ho"><input id="txtPassword" name="txtPassword" type="password" class="cr-ai-ld" placeholder="请输入密码" ></div>																			
+
+										<div style="background-color:white;padding-left:26px" class="form-group " >
+                						 <label><input type="checkbox" name="chkLogin" checked id="chkLogin"></label><a id="Agree" class="text-success">我同意协议</a>
                 						</div>
-										<div id="btnLogin"  class="d-ai-rt">登录</div><input type="text" name="fakeusernameremembered" style="display: none;"><input type="password" name="fakepasswordremembered" style="display: none;"></div>
+										<div id="btnRegister" class="d-ai-rt">注册</div><input type="text" name="fakeusernameremembered" style="display: none;"><input type="password" name="fakepasswordremembered" style="display: none;"></div>
 										<div class="cr-ai-dr-xj">
-										<a id="resetPassword" class="cr-ai-dr-xj-h" >忘记密码</a>
-										<a target="_self" href="../public/eyt_register_new_new" class="cr-ai-dr-xj-h" >注册</a>
+										<span id="resetPassword" class="" >已经有账户了？</span>
+										<a target="_self" href="../public/eyt_login" class="cr-ai-dr-xj-h" >点此登录</a>
 									</div>
 								</div>
 							</div>
@@ -173,66 +182,19 @@
 		    <script src="../app/common/common.js" charset="utf-8"></script>
 			<script src="../app/common/cookies.js" charset="utf-8"></script>
 			<script src="../app/common/md5.js" charset="utf-8"></script>
-		    <script src="../app/public/login_c.js" charset="utf-8"></script>
-			<script src="../app/public/login_m.js" charset="utf-8"></script>  
-			<script src="../app/public/login_v.js" charset="utf-8"></script>
-			<script src="../app/public/login_check.js" charset="utf-8"></script>
+			<script src="../app/public/eyt_register_new_new_check.js" charset="utf-8"></script>
+		    <script src="../app/public/eyt_register_new_new_c.js" charset="utf-8"></script>
+			<script src="../app/public/eyt_register_new_new_m.js" charset="utf-8"></script>  
+			<script src="../app/public/eyt_register_new_new_v.js" charset="utf-8"></script>
+			
 			<script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
 			<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>
 			<script src="../js/plugins/validate/messages_zh.min.js"></script>
-			 <script>
-        //$(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
-    	//function btnLogin_click(){
-    	//	window.location.href="eyt_index.html";
-    	//}
-		
-		
-$("#resetPassword").click (function(){
-	swal({
-		title: "<h4>忘记密码，不要着急!</h4>",
-		text: '<h4>请输入您的邮箱，重置密码</h4>',
-		type: 'input',
-		showCancelButton: true,
-		closeOnConfirm: false,
-		animation: "slide-from-top",
-		inputPlaceholder: "请输入邮箱",
-		confirmButtonText: "重置密码",
-		cancelButtonText: "取消",
-		html: true
-	},
-	function(inputValue){
-		if (inputValue === false) return false;
-		var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		 	if (!filter.test(inputValue)){
- 					swal.showInputError("请输入正确油箱!");
- 					return false;
- 				}
-/* 		if (inputValue === "") {
-			swal.showInputError("请输入正确油箱!");
-			return false; */
-		//}
-    
-		//swal("Nice!", 'You wrote: ' + inputValue, "success");
-
-		swal({
-			title: "感谢您选择运易达",
-			text: "激活邮件已经发送到 <strong>"+inputValue+"</strong> ，请您前往邮箱点击激活链接完成注册。",
-			showCancelButton: false,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "现在前往邮箱",
-			closeOnConfirm: false,
-			html: true
-		}
-		,
-		function(){
-			//swal("提示信息", "注册成功，正在进入平台......", "success");
-			//alert(inputValue);
-			http_select_email_code(inputValue);			
-			//parent.location.href='http://www.hao123.com/mail';
-		 }
-		);
-	});
-});				
+			<script>
+        
+    	$("#Agree").click(function () {            
+			window.location.href="privacy";
+        }); 
     </script>
 	</body>
 </html>

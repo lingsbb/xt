@@ -105,7 +105,7 @@ ul
 <body lang="ZH-CN" style="text-justify-trim: punctuation; padding: 10px 0px 30px 0px;">
     <div style="width: 80%; margin: 0px auto;">
         <img src="../app/public/privacy_files/logo2.png" style="width: 120px;" >
-        <button style="color: White; background-color: #3aa5e6;" onclick="location.href='eyt_register_new';">
+        <button style="color: White; background-color: #3aa5e6;" onclick="location.href='eyt_register_new_new';">
             注册</button>
         <button style="color: #3aa5e6; background-color: White;" onclick="location.href='eyt_login';">
             登录</button>

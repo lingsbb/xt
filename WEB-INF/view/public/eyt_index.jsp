@@ -89,7 +89,7 @@
 
 					</a></li>
 					<li><a class="J_menuItem" href="../my/eyt_concat_in"> <i
-							class="fa fa-user"></i> <span class="nav-label">内部联系人</span>
+							class="fa fa-user"></i> <span class="nav-label">内部联系人2</span>
 
 					</a></li>
 					<li><a class="J_menuItem" href="../my/eyt_concat_out"
