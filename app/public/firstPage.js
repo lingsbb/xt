@@ -37,5 +37,5 @@ function main(){
 function goRegister(){
 	var emailStr="";
 	emailStr=!$('#registerEmail').val()?"":$('#registerEmail').val();
-	window.location.href="../eyt_xt/public/eyt_register_new?email="+emailStr;
+	window.location.href="../eyt_xt/public/eyt_register_new_new?email="+emailStr;
 }
