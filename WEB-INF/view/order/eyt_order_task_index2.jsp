@@ -978,16 +978,16 @@
 
 			</div> -->
 			<!--   -->
-		<div class="small-chat-box fadeInRight animated" style="height:500px;right:50px;bottom:100px">
+		<div class="small-chat-box fadeInRight animated" style="height:400px;right:50px;bottom:100px">
 
             <div class="heading" draggable="true">
                 <small class="chat-date pull-right">
                 </small> 反馈问题
             </div>
 
-            <div class="slimScrollDiv" style="position: relative; width: auto; height:450px;"><div class="content" style="width: auto; height: 450px;overflow:auto" >
+            <div class="slimScrollDiv" style="position: relative; width: auto; height:350px;"><div class="content" style="width: auto; height: 350px;overflow:auto" >
 
-                <div class="left" id="divSend" style="height:400px;">
+                <div class="left" id="divSend" style="height:300px;">
                     <!--<div class="author-name">
                         Beau-zihan <small class="chat-date">
                         10:02
@@ -1088,7 +1088,7 @@
 		<script src="../js/jquery.uploadifive.min.js" type="text/javascript"></script>
 		<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 		<script src="../js/content.min.js"></script>
-		<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>
+		<!--<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>-->
 		<script type="text/javascript" src="../app/common/common.js"></script>
 		<script type="text/javascript" src="../app/common/common_shandong.js"></script>
 		<script type="text/javascript" src="../app/common/cookies.js"></script>
