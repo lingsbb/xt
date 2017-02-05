@@ -47,7 +47,7 @@ var g_create_order_sendEmailAndSmsUrl = g_http_webserver_ip+g_virtual_dir+"/publ
 /**
  * 邀请协同人的时候 给这个人邮件里面的链接地址
  */
-var g_invite_url = g_http_webserver_ip+g_virtual_dir+"/public/eyt_register_new?email=";
+var g_invite_url = g_http_webserver_ip+g_virtual_dir+"/public/eyt_register_new_new?email=";
 
 //var g_task_url = g_http_webserver_ip+"/public/eyt_register_new/"
 //消息服务器地址

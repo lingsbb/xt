@@ -20,11 +20,11 @@ var $txtend;//结束时间
 
 
 
-var $count2;//修改中数量
-var $count3;//订舱数量
-var $count4;//报关数量
-var $count5;//运输数量
-var $count6;//完结数量
+// var $count2;//修改中数量
+// var $count3;//订舱数量
+// var $count4;//报关数量
+// var $count5;//运输数量
+// var $count6;//完结数量
 
 var _txtyewu_v;//业务号
 var _txtxianghao_v;//箱号
@@ -35,7 +35,7 @@ var $btnQuery;//查询按钮
 var $btnCreate;//创建按钮
 
 var isFirstEnter='0';//第一次进入系统的标志值
-var isFirstCreate='1';//标志第一次创建订单按钮，用户查询下拉框，，，查询一次后赋值到下拉框中，不再重复查询
+var isFirstCreate='1';//针对报关地的 第一次标记  以后不查了   标志第一次创建订单按钮，用户查询下拉框，，，查询一次后赋值到下拉框中，不再重复查询
 var currentTab=1;
 
 /**
@@ -43,7 +43,7 @@ var currentTab=1;
  */
 $(function(){
 	firefox();//兼容火狐浏览器 则给按钮添加样式
-	create_des_ctl();//创建目的地控件
+	create_des_ctl($("#txtIn"));//创建目的地控件
 	getElement();
 	setEvent();
 	
@@ -78,16 +78,16 @@ function firefox(){
 	}
 }
 
-/**
- * 创建目的地控件
- */
-function create_des_ctl(){
-	////////////////////////////目的地start//////////////////////////////////////////////////////////
-	http_select_station_code();
-	console.log(_desCity.length);
-	$("#txtIn").attr('data-source',JSON.stringify(_desCity));
-	////////////////////////////目的地end//////////////////////////////////////////////////////////
-}
+// /**
+//  * 创建目的地控件
+//  */
+// function create_des_ctl(){
+// 	////////////////////////////目的地start//////////////////////////////////////////////////////////
+// 	http_select_station_code();
+// 	console.log(_desCity.length);
+// 	$("#txtIn").attr('data-source',JSON.stringify(_desCity));
+// 	////////////////////////////目的地end//////////////////////////////////////////////////////////
+// }
 
 /**
  * 引导层
@@ -299,8 +299,8 @@ function btnUpdateQQ_click() {
 
 //////////////////////////////////////////////////////////////////目的地 start//////////////////////////////////////////////////////////////////
 
-var _desCity=new Array();
-var _desCities;
+// var _desCity=new Array();
+// var _desCities;
 
 // function findIdByDesCity(f)
 // {
@@ -315,42 +315,42 @@ var _desCities;
 // 	return a;
 // }
 
-/**
- * 查询站编
- */
-function http_select_station_code(){
+// /**
+//  * 查询站编
+//  */
+// function http_select_station_code(){
 
-	$.ajax({
-		url: '../soa_user',
-		type: 'post',
-		data: {
-	           fun: 'select_station_code'
-		},
-		async: false,
-		timeout : 5000, 
-		dataType:'text', 
-		contentType: 'application/x-www-form-urlencoded; charset=utf-8', 
-		success: function(data) {
-			var json=str2json(data);
-			if (json.status=="200"){
-				_desCities=json.rs;
-				for(var i=0;i<json.rs.length;i++)
-				{
-				    var result = json.rs[i].result;
-				    _desCity.push(result);
-				}
-				// console.log(json.rs.length);
-				// console.log(_desCity);
-			}
-			else if (json.status=="404"){
+// 	$.ajax({
+// 		url: '../soa_user',
+// 		type: 'post',
+// 		data: {
+// 	           fun: 'select_station_code'
+// 		},
+// 		async: false,
+// 		timeout : 5000, 
+// 		dataType:'text', 
+// 		contentType: 'application/x-www-form-urlencoded; charset=utf-8', 
+// 		success: function(data) {
+// 			var json=str2json(data);
+// 			if (json.status=="200"){
+// 				_desCities=json.rs;
+// 				for(var i=0;i<json.rs.length;i++)
+// 				{
+// 				    var result = json.rs[i].result;
+// 				    _desCity.push(result);
+// 				}
+// 				// console.log(json.rs.length);
+// 				// console.log(_desCity);
+// 			}
+// 			else if (json.status=="404"){
 
-			}
-	},
-		error: function() {
+// 			}
+// 	},
+// 		error: function() {
 
-		}
-	});
-}
+// 		}
+// 	});
+// }
 // http_select_station_code();
 // console.log(_desCity.length);
 // $("#txtIn").attr('data-source',JSON.stringify(_desCity));

@@ -27,6 +27,10 @@ function addformrow(formid,key,value,type) {
 	}
 	var s=make_input(formid,key,value,type);
 	$txtForm.append(s);
+	//为目的地添加数据源
+	if(key=='目的地'){
+		create_des_ctl($("#txtIn"));
+	}
 }
 
 /**
@@ -36,6 +40,14 @@ function addformrow(formid,key,value,type) {
 function make_input(formid,key,value,type){
 	//console.log(formid,key,value,type);
 	var s="";
+	//如果是目的地，加载目的地的页面
+	if  (key=='目的地'){
+				s=	"<div class='form-group'><label class='col-sm-3 control-label' "+_display_none_unbind+" id='formitemid1' name='formitemid1'>"+ key + "</label><div class='col-sm-8'>"+
+				"<input  type='search'  class='form-control input-sm' id='txtIn' data-provide='typeahead'  data-items='4' onpropchange='OnPropChanged()' name='formitemvalue1' value='"+ value+ "' />"+
+				"</div></div>";
+		
+		return s;
+	}
 	if(type==0){//文本框
 		s=""+
 		"<div class='form-group'><label class='col-sm-3 control-label' "+_display_none_unbind+" id='formitemid1' name='formitemid1'>"+ key + "</label><div class='col-sm-8'>"+

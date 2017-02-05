@@ -22,10 +22,10 @@ function main(){
 	
 	//如果cookie中的id有值，则显示进入首页，否则显示登录
 	if(getCookieValue("id")){
-		enterWay='<a class="login-in" href="../eyt_xt/public/enter">进入首页</a>';
+		enterWay='<a class="login-in" href="./public/enter">进入首页</a>';
 		$('#enterDiv').append(enterWay);
 	}else{
-		enterWay='<a class="login-in" href="../eyt_xt/public/eyt_login">登录</a>';
+		enterWay='<a class="login-in" href="./public/eyt_login">登录</a>';
 		$('#enterDiv').append(enterWay);
 	}
 }
@@ -37,5 +37,5 @@ function main(){
 function goRegister(){
 	var emailStr="";
 	emailStr=!$('#registerEmail').val()?"":$('#registerEmail').val();
-	window.location.href="../eyt_xt/public/eyt_register_new_new?email="+emailStr;
+	window.location.href="./public/eyt_register_new_new?email="+emailStr;
 }

@@ -82,7 +82,15 @@ function get_value(){
 		}
 		else{
 			var txt=$(this).val();
+////////////////////////////////////////////////////////////////////目的地截取中文
+			var id=$(this).attr('id');//获取控件id，id找目的地
+			if(id=="txtIn"){
+				var end=txt.split("---");//将串切成数组
+				txt=end[1];
+			}
+////////////////////////////////////////////////////////////////////			
 			_txtFormitemValue+=txt+",";
+			//console.log(_txtFormitemValue);
 			if (j==baoguandi_key){
 				_baoguandi=txt;
 			}
