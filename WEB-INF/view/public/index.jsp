@@ -96,7 +96,7 @@
 <div class="pull-left">
 <ul>
 <li id="enterDiv" class="menu-btn"></li>
-<li class="menu-btn register"><a class="login-in" href="../eyt_xt/public/eyt_register">免费注册</a></li>
+<li class="menu-btn register"><a class="login-in" href="../eyt_xt/public/eyt_register_new_new">免费注册</a></li>
 <li class="menu-btn login-show"><a class="login-in" href="#">返回项目</a></li>
 </ul>
 </div>
