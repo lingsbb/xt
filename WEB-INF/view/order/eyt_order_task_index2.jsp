@@ -1114,7 +1114,7 @@
 		<script type="text/javascript" src="../app/common/common_shandong.js"></script>
 		<script type="text/javascript" src="../app/common/cookies.js"></script>
 
-		<script src="../app/order/destination.js" charset="utf-8"></script><!--目的地-->
+		<script src="../app/common/destination.js" charset="utf-8"></script><!--目的地-->
 		<script src="../js/bootstrap3-typeahead.js"></script><!--目的地-->
 		<script type="text/javascript" src="../app/order/execute_order_m.js"></script>
 		<script type="text/javascript" src="../app/order/execute_order_c.js"></script>

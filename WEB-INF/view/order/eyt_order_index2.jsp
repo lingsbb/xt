@@ -601,7 +601,7 @@
 		<script src="../app/order/eyt_order_index2_c.js" charset="utf-8"></script>
 		<script src="../app/order/eyt_order_index2_m.js" charset="utf-8"></script>
 		<script src="../app/order/eyt_order_index2_v.js" charset="utf-8"></script>
-		<script src="../app/order/destination.js" charset="utf-8"></script><!--目的地-->
+		<script src="../app/common/destination.js" charset="utf-8"></script><!--目的地-->
 		<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>
 		<script src="../app/order/index2_create_order_check.js" charset="utf-8"></script>
 		<script src="../app/order/index2_create_order_c.js" charset="utf-8"></script>
