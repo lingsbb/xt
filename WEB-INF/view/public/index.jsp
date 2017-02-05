@@ -88,7 +88,7 @@
 <div class="pull-left">
 <ul>
 <li class="menu-item"><a class="active" data-scroll="">首页</a></li>
-<li class="menu-item"><a href="../eyt_xt/eyt" data-scroll="">功能</a></li>
+<li class="menu-item"><a href="./eyt" data-scroll="">功能</a></li>
 
 </ul>
 </div>
@@ -96,7 +96,7 @@
 <div class="pull-left">
 <ul>
 <li id="enterDiv" class="menu-btn"></li>
-<li class="menu-btn register"><a class="login-in" href="../eyt_xt/public/eyt_register_new_new">免费注册</a></li>
+<li class="menu-btn register"><a class="login-in" href="./public/eyt_register_new_new">免费注册</a></li>
 <li class="menu-btn login-show"><a class="login-in" href="#">返回项目</a></li>
 </ul>
 </div>
@@ -412,7 +412,7 @@
         }
     </script>
 <script src="./css/index_files/eyt_files/main.e791eec5033b6a123141.js"></script>
-<script src="../eyt_xt/app/common/common.js" type="text/javascript"></script>
-<script src="../eyt_xt/app/common/cookies.js" type="text/javascript"></script>
-<script type="text/javascript" src="../eyt_xt/app/public/firstPage.js"></script>
+<script src="./app/common/common.js" type="text/javascript"></script>
+<script src="./app/common/cookies.js" type="text/javascript"></script>
+<script type="text/javascript" src="./app/public/firstPage.js"></script>
 </body></html>

@@ -145,7 +145,7 @@
 			<script src="../app/public/reg_email_m.js" charset="utf-8"></script>
 			<script src="../app/public/reg_email_v.js" charset="utf-8"></script>
 			<script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
-			<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>
+			<!--<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>-->
 			<script src="../js/plugins/validate/messages_zh.min.js"></script>
 
 	</body>

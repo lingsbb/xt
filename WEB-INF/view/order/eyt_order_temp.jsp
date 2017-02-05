@@ -140,7 +140,7 @@
 			<script src="../app/common/cookies.js" charset="utf-8"></script>
 			<script src="../app/common/md5.js" charset="utf-8"></script>
 			<script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
-			<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>
+			<!--<script type="text/javascript" src="../app/my/jquery-validation-1.15.1/dist/jquery.validate.js"></script>-->
 			<script src="../js/plugins/validate/messages_zh.min.js"></script>
 			 
 	</body>

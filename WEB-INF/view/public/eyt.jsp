@@ -40,7 +40,7 @@
             <a href="#" class="nav-toggle" aria-hidden="true">Menu</a><nav class="nav-collapse nav-collapse-0 closed" aria-hidden="false" style="transition: max-height 284ms; position: relative;">
                 <div class="pull-left">
                     <ul>
-                        <li class="menu-item"><a href="../eyt_xt/index" data-scroll="">首页</a></li>
+                        <li class="menu-item"><a href="index" data-scroll="">首页</a></li>
                         <li class="menu-item"><a class="active" href="#" data-scroll="">功能</a></li>
                     
                     </ul>
@@ -49,7 +49,7 @@
                 <div class="pull-left">
                     <ul>
                         <li  id="enterDiv" class="menu-btn"></li>
-                        <li class="menu-btn register"><a class="login-in" href="../eyt_xt/public/eyt_register">免费注册</a></li>
+                        <li class="menu-btn register"><a class="login-in" href="./public/eyt_register">免费注册</a></li>
                         <li class="menu-btn login-show"><a class="login-in" href="#">返回项目</a></li>
                     </ul>
                 </div>
@@ -147,7 +147,7 @@
             </div>
         </div>
 
-        <div class="pro-detail pro-center row" style="background-image: url(../eyt_xt/css/index_files/index3_files/4_02.jpg);    background-size: cover;">
+        <div class="pro-detail pro-center row" style="background-image: url(./css/index_files/index3_files/4_02.jpg);    background-size: cover;">
             <div class="col-md-12">
                 <p class="title header" style="color:#57CCD5"><span class="header-icon ee-icon-chart-line"></span><span class="text">专业的协同订单跟踪</span></p>
                 <div class="desc" style="color:#fff">运易达中内置了多种常用订单跟踪视图，包括我发起的、我执行的、我关注的任务等，每个界面都带有简易的统计表格，非常直观，后期会让用户自定义统计维度来满足不同的统计需求。
@@ -308,9 +308,9 @@
 <script src="./css/index_files/index3_files/responsive-nav.min.js"></script>
 <script src="./css/index_files/index3_files/fastclick.js"></script>
 <script src="./css/index_files/index3_files/scroll.js"></script>
-<script src="../eyt_xt/app/common/common.js" type="text/javascript"></script>
-<script src="../eyt_xt/app/common/cookies.js" type="text/javascript"></script>
-<script type="text/javascript" src="../eyt_xt/app/public/firstPage.js"></script>
+<script src="./app/common/common.js" type="text/javascript"></script>
+<script src="./app/common/cookies.js" type="text/javascript"></script>
+<script type="text/javascript" src="./app/public/firstPage.js"></script>
     <script>
         //避免搜索引擎搜出effevo.mt.sogou.com，把用户引到此域名
         if ('effevo.mt.sogou.com' === location.hostname && window.navigator.userAgent && window.navigator.userAgent !== 'test') { location.href = 'https://effevo.com'; }
