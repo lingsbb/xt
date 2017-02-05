@@ -154,7 +154,7 @@ function http_updateMyInfo(new_cn, new_nickname, new_qiye, new_department, new_Q
 				// var statusaaa= "1";
 				var statusaaa = getQueryString("iscreatefail"); 
 				if (statusaaa == "a"){// 陌生男的夜调过来是a
-					window.parent.closeTaskTabAndFrame(_userId_v);
+					window.parent.closeTaskTabAndFrame(_cookierId);
 				} else {
 					window.location.reload();//刷新当前页面.
 				}

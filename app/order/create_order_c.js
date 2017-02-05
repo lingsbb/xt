@@ -47,12 +47,12 @@ function main() {
 	getOrderInfo();
 }
 
-/**
- * 返回上一页
- */
-function goback(){
-	window.location.href="eyt_order_index2";
-}
+// /**
+//  * 返回上一页
+//  */
+// function goback(){
+// 	window.location.href="eyt_order_index2";
+// }
 
 function setEvent() {	
 	//刷新页按钮
