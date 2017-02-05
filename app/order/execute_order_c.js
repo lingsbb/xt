@@ -45,6 +45,7 @@ function getElement() {
  * 发起post
  */
 function post() {
+	insertDesCity();//插入任务模版到tab_task_form_value表里
 	// 6层 比较复杂 查询人物对应的任务角色
 	http_select_task_role();
 	//下面比较单一化

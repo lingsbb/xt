@@ -2,6 +2,40 @@
 //模块功能：执行页面-返工 结束任务等 模型层
 //模块日期：2017-01-20
 //====================================================
+
+/**
+ * 插入任务模版到tab_task_form_value表里
+ * --作者：金鑫
+ * --参数：_taskid
+ * --时间: 2017002.05
+ */
+function insertDesCity(){
+	$.ajax({
+		url: '../soa_order',
+		type: 'post',
+		data: {
+	        fun: 'insert_task_fromstart',
+	        p1: _taskid
+		},
+		async: false,
+		timeout : 10000, 
+		dataType:'text', 
+		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+		beforeSend: function(){ 
+   		}, 
+		success: function(data) {
+				console.log("添加成功");
+		},
+		error: function() {
+			console.log("请求网络超时");			
+		}
+		,
+		complete : function(XMLHttpRequest,status){
+		}
+	});
+}
+
+
 /**
  * 查询任务名称、发起人姓名、执行人姓名
  * -- 过程功能：查询任务名称、发起人名称、执行人名称
