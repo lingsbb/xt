@@ -297,11 +297,15 @@
 					                            </div> -->
 										<div class="form-group">
 											<label class="col-sm-3 control-label">附件</label>
-											<div class="col-sm-8">
+											<!--<div class="col-sm-8">
 												<span id="txtFile"></span>
 												<div id="fileQueue"></div>
 												<input type="file" name="uploadify" id="uploadify" />
 												<a href="javascript:$('#uploadify').uploadifive('upload')"></a>
+											</div>-->
+											<div class="col-sm-8">
+												<span onclick="upload_file()"  class="btn btn-info ">上传</span>
+												<span id="txtFile"></span>
 											</div>
 										</div>
 										<span id="txtForm"></span>
@@ -1068,6 +1072,42 @@
             </a>
         </div>
 			
+
+		<!--上传弹出对话框 -->
+		<div id="uploadFilePanel" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">上传文件</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<form class="form-horizontal m-t" id="signupForm">
+										
+										<div class="form-group">
+											<label class="col-sm-3 control-label">附件：</label>
+												<div class="col-sm-8">
+												<div id="fileQueue"></div>
+												<input type="file" name="uploadify" id="uploadify" />
+												<a href="javascript:$('#uploadify').uploadifive('upload')"></a>
+												</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btnCommitFile">提交</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 		<script type="text/javascript" src="../js/clipboard.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 

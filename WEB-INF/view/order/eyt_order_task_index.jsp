@@ -223,7 +223,7 @@
 								<ul class="nav nav-tabs">
 								<!--	<span id="sumTask" class="pull-right small text-muted"></span>-->
 								<button onclick="goback()" style="margin-left: 10px;" class="btn btn-primary pull-right">返回</button><span style="width: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-								<button onclick="upload_file()" class="btn btn-primary pull-right">上传</button>
+								<!--<button onclick="upload_file()" class="btn btn-primary pull-right">上传</button>-->
 									<li class="active">
 										<a data-toggle="tab" href=""><i class="fa fa-user"></i> 任务</a>
 									</li>
@@ -362,10 +362,10 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<form class="form-horizontal m-t" id="signupForm">
-										<div class="form-group">
+										<!--<div class="form-group">
 											<label class="col-sm-3 control-label">选择任务：</label>
 											<div id="taskConfig" class="col-sm-8 modal-body"></div>
-										</div>
+										</div>-->
 
 										<div class="form-group">
 											<label class="col-sm-3 control-label">附件：</label>
