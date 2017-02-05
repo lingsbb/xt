@@ -136,63 +136,63 @@ function getElement(){
 function setEvent()
 {   
     console.log("_urlEmail====="+_urlEmail);
-   if(!_urlEmail){
-       
-   }else{
-       $txtEmail.val(_urlEmail);
-       $txtEmail.attr("readonly","readonly");
-   }
+	if(!_urlEmail){
+		
+	}else{
+		$txtEmail.val(_urlEmail);
+		$txtEmail.attr("readonly","readonly");
+	}
 
 	//v_get_userinfo();
 	_txtEmail_v=$('#txtEmail').val();
 	_txtTel_v = $('#txtTel').val();
 	_txtPassword_v = $('#txtPassword').val();
 	_txtCode_v=$('#txtCode').val();
-/*
-*	发送按钮点击事件
-*/ 
+	/** 
+	 *	发送按钮点击事件
+	 */
 	$btnSend.click(function(){
 		btnSend_click();		
 	});	
-/*
-*	注册按钮点击事件
-*/ 
+	/** 
+	 *	注册按钮点击事件
+	 */ 
 	$btnRegister.click(function(){
 		btnRegister_click();		
 	});
 
-/*
-*	邮箱文本框change事件
-*/ 
+	/** 
+	*	邮箱文本框change事件
+	*/ 
 	$txtEmail.bind('input propertychange',function(){	
 		txtEmail_validation();
 	});	
 
-/*
-*	手机号文本框change事件
-*/ 
+	/** 
+	*	手机号文本框change事件
+	*/ 
 	$txtTel.bind('input propertychange',function(){	
 		txtTel_validation();
 	});	
 
 
-/*
-*	密码文本框change事件
-*/ 
+	/** 
+	*	密码文本框change事件
+	*/ 
 	$txtPassword.bind('input propertychange',function(){	
 		txtPassword_validation();
 	});	
 
-/*
-*	验证码文本框change事件
-*/ 
+	/** 
+	*	验证码文本框change事件
+	*/ 
 	$txtCode.bind('input propertychange',function(){	
 		txtCode_validation();
 	});	
 }
 
 
-/*
+/** 
 *	注册按钮点击事件逻辑
 */ 
 function btnRegister_click(){	
@@ -236,7 +236,7 @@ function btnRegister_click(){
 }
 
 
-/*
+/** 
 *	发送按钮点击事件逻辑
 */ 
 function btnSend_click(){	
@@ -245,7 +245,7 @@ function btnSend_click(){
 }
 
 
-/*
+/** 
 *	邮箱验证逻辑
 */ 
 function txtEmail_validation(){
@@ -269,7 +269,7 @@ function txtEmail_validation(){
 
 
 
-/*
+/** 
 *	手机号验证逻辑
 */ 
 function txtTel_validation(){
@@ -293,7 +293,7 @@ function txtTel_validation(){
 
 
 
-/*
+/** 
 *	密码验证逻辑
 */ 
 function txtPassword_validation(){
@@ -308,7 +308,7 @@ function txtPassword_validation(){
 	}
 }
 
-/*
+/** 
 *	短信验证码验证逻辑
 */ 
 function txtCode_validation(){
@@ -330,7 +330,7 @@ function txtCode_validation(){
 	}
 }
 
-/*
+/** 
 *	隐藏所有报错信息
 */ 
 function hideElement(){
