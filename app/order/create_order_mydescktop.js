@@ -134,6 +134,17 @@ function insertFileInfo() {
 				var rs = json.rs;
 				taskid = rs[0].task_id;
 				if (rs[0].result == "1") {
+
+					var content='';
+					var userNick = getCookieValue("username");
+					if(!userNick){
+						content = "匿名上传文件" + filelist1;	
+					}else{
+						content = userNick+"上传文件"+ filelist1;
+					}
+					http_insert_msg_push_create(content);
+
+
 					$('#fileQueue2').html("");
 					select_mydesktop();
 					// btnReload_click();
@@ -141,6 +152,8 @@ function insertFileInfo() {
 			   //	resetBothSelect();
 					filelist1 = "";
 					$("#uploadFilePanels").modal("hide");
+					//发送通知信息
+					http_insert_task_push_execute(content);
 					$("button[name='btn_delete_hidden_status']").each(function(index,item){
 							$(this).hide();				 
 					});
@@ -269,22 +282,29 @@ function showMyDesktop(fileDatas){
  * @param p
  * @param async
  */
-function upload_file(){
+function upload_file(taskid){
 	filelist1 = "";
 	$('#fileQueue2').html("");
-	$.ajax({
-		async: false,
-		url: "../soa_user",
-		datatype: 'json',
-		type: "post",
-		data: {
-			fun: "select_is_hasqiye",
-			p1 : _userId
-		},
-		success: function (data) {
-		 	$('#uploadFilePanels').modal({backdrop:"static"});
-		}
-	});
+	//把选择的任务id保存起来
+	selectTask = taskid; 
+	$('#uploadFilePanels').modal({backdrop:"static"});
+
+
+	// filelist1 = "";
+	// $('#fileQueue2').html("");
+	// $.ajax({
+	// 	async: false,
+	// 	url: "../soa_user",
+	// 	datatype: 'json',
+	// 	type: "post",
+	// 	data: {
+	// 		fun: "select_is_hasqiye",
+	// 		p1 : _userId
+	// 	},
+	// 	success: function (data) {
+	// 	 	$('#uploadFilePanels').modal({backdrop:"static"});
+	// 	}
+	// });
 }
 /**
  * 获取我的桌面
@@ -311,6 +331,8 @@ function getFileDesktopPanel(fileData){//fileData["taskid"] taskid
 		console.log(fileitem);
 		readPanel += getEditFileDesktopPanel(fileitem);
 	});
+	//24 zq 添加上传按钮
+	readPanel +='<button onclick="upload_file(\''+taskid+'\')" class="btn btn-primary pull-right">上传</button>'
 	readPanel += '</ul></div></div></div></div></div>';
 	return readPanel;							
 }
@@ -363,9 +385,13 @@ function getEditFileDesktopPanel(fileitem){
 			//itemHtml = "";
 			var ext = many_filename[i].substring(many_filename[i].lastIndexOf("."),many_filename[i].length);			
 			itemHtml += '<li>'+	getDesktopItemFileIcon(ext,many_filename[i],many_filepath[i],many_filedate[i]) + 
+			// '<a class="" style="font-size: 14px;">'+showFileName+'<i class="fa fa-download" style="color: #00458A;margin-top: -8px;" '+
+			// 		'onclick="openOrDownloadFile(\''+many_filepath[i]+'\',true);" ></i><i class="fa fa-close" style="color: #00458A;margin-top: -8px;" '+
+			// 		'onclick="deleteFile(\''+many_filepath[i]+'\');" ></i></a></li>';	
+
 			'<a class="" style="font-size: 14px;">'+showFileName+'<i class="fa fa-download" style="color: #00458A;margin-top: -8px;" '+
 					'onclick="openOrDownloadFile(\''+many_filepath[i]+'\',true);" ></i><i class="fa fa-close" style="color: #00458A;margin-top: -8px;" '+
-					'onclick="deleteFile(\''+many_filepath[i]+'\');" ></i></a></li>';	
+					'onclick="deleteFile(\''+many_filepath[i]+'\',\''+many_filename[i]+'\');" ></i></a></li>';
  		}							
 	}
 	return itemHtml;
@@ -444,12 +470,89 @@ function openOrDownloadFile(filepath,isDownload){
 }
 
 //删除文件
-function deleteFile(filepath){
-	funDeleteFile(filepath);
+function deleteFile(filepath,filename){
+	var msg = "您真的确定要删除吗？\n\n删除不可恢复！！！\n\n请确认！！！";
+	if (confirm(msg)==true){
+		funDeleteFile(filepath,filename);
+	}else{
+		// do nothing
+	}
+	
 }
 
 /**
- * 添加执行任务信息 给JMS服务器 0-状态通知 1-操作日志 2-工作流通知 3-讨论
+ * 生成发送消息结构体（点击提交按钮等操作）
+ */
+function createTeamMessage_execute(task_id,msgbody,dbcreatetime){
+	var TeamMessage = {
+		taskid: task_id,
+		type: "1",//mqtt.js 操作日志，只在右上角的通知，在系统
+		msgtext: msgbody,
+		createtime: dbcreatetime,
+		nickname: getCookieValue("userNick")
+	};
+	return JSON.stringify(TeamMessage);
+}
+/**
+ * 添加绿点提示信息 给JMS服务器 0-状态通知 1-操作日志 2-工作流通知 3-讨论
+ */
+function http_insert_task_push_execute(content){
+	var userId = getCookieValue("id");
+	if(!userId){
+		userId='600';
+	}else{
+	}		
+	$.ajax({
+		url: '../soa_order',
+		type: 'post',
+		data: {
+	        fun: 'insert_task_push_team',
+	        p1: selectTask,
+	        p2: "1",
+	        p3: content,
+	        p4: userId
+		},
+		async: true,
+		timeout : 5000, 
+		dataType:'text', 
+		contentType: 'application/x-www-form-urlencoded; charset=utf-8', 
+		success: function(data) {
+			var json=str2json(data);
+			if (json.status=="200"){
+				
+				var ctime = json.rs[0].createtime;
+				var str = createTeamMessage_execute(selectTask,content,ctime);
+				try
+ 				 {
+					//adddlert("Welcome guest!");
+					var toptic = window.parent.dingyueMap[selectTask];
+					$("#txtTeam").val("");
+					// http_insert_task_push_team(content);
+					//var str = "{\"taskid\":\"1482714581\",\"type\":\"-1\",\"msgtext\":\"444444444\",\"createtime\":\"2016-12-26 09:38:46\",\"nickname\":\"刘霄\"}"
+					window.parent.publish(toptic,str);
+					//$("#txtTeam").val("");
+ 				 }
+				catch(err)
+  				{
+					txt="There was an error on this page.\n\n";
+					txt+="Error description: " + err.message + "\n\n";
+					txt+="Click OK to continue.\n\n";
+					//alert(txt);
+ 				 }
+			}else{
+				console.log("发送push失败");		
+			}			
+		},
+		error: function() {
+			console.log("请求网络超时");			
+		},
+		complete : function(XMLHttpRequest,status){
+		}
+	});
+}
+
+/**
+ * 添加活动信息 给JMS服务器 0-状态通知 1-操作日志 2-工作流通知 3-讨论
  */
 function http_insert_msg_push_create(content){		
 	$.ajax({
@@ -484,14 +587,14 @@ function http_insert_msg_push_create(content){
 }
 
 //删除服务器的实际文件
-function funDeleteFile(filepath) {
+function funDeleteFile(filepath,filename) {
 	if(!filepath) return;
 	$.ajax({
 		url : 'http://59.110.160.193:8090/address/order/DeleteFile',
 		type : 'get',
 		data : {
 			filepath: filepath,
-			filename: "nothing"
+			filename: filename
 		},
 		async : true,
 		timeout : 10000,
@@ -505,7 +608,7 @@ function funDeleteFile(filepath) {
 				json = str2json(data);
 				if (json.isDel == "true") {
 					console.log("file is delete,db will be del");
-					delFileDB(filepath);
+					delFileDB(filepath,filename);
 				}
 			}catch(e){
 
@@ -518,7 +621,7 @@ function funDeleteFile(filepath) {
 	});
 }
 //删除数据库中的文件信息
-function delFileDB(filepath){
+function delFileDB(filepath,filename){
 		if(!filepath) return;
 		$.ajax({
 		url : '../soa_order',
@@ -539,7 +642,18 @@ function delFileDB(filepath){
 					console.log("file is delete ok");
 					//刷新
 					select_mydesktop();
-					http_insert_msg_push_create("删除了" + filepath);
+					//发送邮件和通知
+					var content='';
+					var userNick = getCookieValue("username");
+					if(!userNick){
+						content = "匿名删除文件" + filename;	
+					}else{
+						content = userNick+"删除文件"+ filename;
+					}
+					//send_email_push(content);
+					//http_insert_msg_push_create(content);
+					//发送通知信息
+					http_insert_task_push_execute(content);
 
 				}else{
 					console.log("file is delete fail");

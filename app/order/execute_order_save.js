@@ -27,7 +27,7 @@ function btnCommit_click() {
 	if (_txtFormId){
 		http_insert_task_from_new(_txtFormId,_taskid,_txtFormcn,_txtFormitemId,_txtFormitemValue);//保存执行任务 金鑫新写
 	}
-	http_insert_task_files();// 添加上传文件
+	//http_insert_task_files();// 添加上传文件
 	http_insert_task_ywAndKh_num();//添加客户与业务号
 	http_update_baoguandi();//修改报关地	
 	http_insert_task_push_execute(_content);//添加执行任务信息 给JMS服务器 0-状态通知 1-操作日志 2-工作流通知 3-讨论

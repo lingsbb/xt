@@ -103,6 +103,7 @@ function http_select_task_cnuser(){
  * 查询附件
  */
 function http_select_task_files(){
+	$txtFile.html("");
 	$.ajax({
 		url: '../soa_order',
 		type: 'post',

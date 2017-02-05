@@ -150,7 +150,17 @@ function http_updateMyInfo(new_cn, new_nickname, new_qiye, new_department, new_Q
 				window.parent.v_setUserName(new_nickname);
 		
 				alert("修改个人信息成功！");
-				window.location.reload();//刷新当前页面.
+
+				// var statusaaa= "1";
+				var statusaaa = getQueryString("iscreatefail"); 
+				if (statusaaa == "a"){// 陌生男的夜调过来是a
+					window.parent.closeTaskTabAndFrame(_userId_v);
+				} else {
+					window.location.reload();//刷新当前页面.
+				}
+
+
+				// window.location.reload();//刷新当前页面.
 				// //window.location.href="eyt_concat_in";
 			} else if  (rsData=="0"){ 
 				alert("修改个人信息失败！");

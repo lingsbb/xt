@@ -116,8 +116,9 @@ function addTableRows (index, item) { //遍历返回的json
 	s='<tr>'+ '<td>'+(index+1)+'</td>'+
 	'<td class="project-status">'+statusStr+'</td>'+
 		'<td class="project-title">'+
-		'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
-
+	//	'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
+//	2.4 张琦 修改了超链接样式，目的（样式上需要提示用户点击任务名进入）
+		'<a target="_self" style="text-decoration:underline;color: #337ab7;" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
 		// '<a target="_self" onclick="toExecute('+taskid+')">'+cn+'</a>'+ //20170124 又不打开心页了
 		//'<a target="_self" onclick="selectDetailByTaskid('+taskid+')">'+cn+'</a>'+ // 20170110改动 改成跳转
 		' <br/>'+
@@ -133,7 +134,9 @@ function addTableRows (index, item) { //遍历返回的json
 		 s='<tr>'+ '<td>'+(index+1)+'</td>'+
 	'<td class="project-status">'+statusStr+'</td>'+
 		'<td class="project-title">'+
-		'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
+		//'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
+		//	2.4 张琦 修改了超链接样式，目的（样式上需要提示用户点击任务名进入）
+		'<a target="_self" style="text-decoration:underline;color: #337ab7;" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
 		' <br/>'+
 	' <small>创建于'+ createtime+'</small></td>'+
 	'<td class="project-people" id="people'+index+'">发&nbsp;&nbsp;起&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;：<a data-toggle="tooltip" title="'+createuser+'"><span class="btn1  wenzi" style="background-color: #ed5565;margin-left:5px"><p style="margin-left: -8px;margin-top: -1px;">'+newcreateuser

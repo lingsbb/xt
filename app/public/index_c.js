@@ -135,6 +135,7 @@ function btnShoucang_click(){
  */
 function enterMyDesktopWithNewTab(orderid){ 
 	if(isTabExist(orderid)){
+		changePageById(orderid);
 		return;
 	}
 	var url ="../order/eyt_order_task_index?orderid="+orderid;
@@ -159,7 +160,7 @@ function enterMyInfo(){
 	if(isTabExist(_userId_v)){
 		return;
 	}
-	var url ="../my/eyt_my_info";
+	var url ="../my/eyt_my_info?iscreatefail=a";
 	var newTab = getNewTabPerson(_userId_v,url);
 	resetTab(newTab);
 	showPushFrame(url, _userId_v);

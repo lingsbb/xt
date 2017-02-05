@@ -41,6 +41,13 @@ function getElement() {
 	$txtYwNum= $('#txtYwNum'); // 业务号
 }
 
+//上传弹出框
+function upload_file(){
+	filelist = "";
+	$('#fileQueue').html("");
+	$('#uploadFilePanel').modal({backdrop:"static"});
+}
+
 /**
  * 发起post
  */
@@ -57,6 +64,61 @@ function post() {
 	http_select_task_push_team();// 查询团队信息
 }
 
+/**
+ * 上传文件提交
+ * @param orderId
+ * @param createUser
+ */
+function insertFileInfo() {
+	$.ajax({
+		url : '../soa_order',
+		type : 'get',
+		data : {
+			fun : 'insert_task_file_info',
+			p1 : getQueryString("t"), // 任务id
+			p2 : filelist	//文件内容
+		},
+		async : true,
+		timeout : 10000,
+		dataType : 'text',
+		contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+		beforeSend : function() {
+		},
+		success : function(data) {
+			var json = str2json(data);
+			if (json.status == "200") {
+				var rs = json.rs;
+				taskid = rs[0].task_id;
+				if (rs[0].result == "1") {
+					//发送邮件和通知
+					var l = isl(_l);
+					var content='';
+					if(l == "T"){
+						content = "匿名上传文件" + filelist;	
+					}else{
+						content = _userNickname_v+"上传文件"+ filelist;
+					}
+					send_email_push(content);
+
+					$('#fileQueue').html("");
+					//select_mydesktop();
+					filelist = "";
+					$("#uploadFilePanel").modal("hide");
+					http_select_task_files();
+					
+				}
+			} else if (json.status == "404") {
+				console.log(" insert_task_info 失败！");
+			}
+		},
+		error : function() {
+			console.log(" insert_task_info 失败！");
+
+		},
+		complete : function(XMLHttpRequest, status) {
+		}
+	});
+}
 /**
  * 设置绑定的事件
  */
@@ -87,6 +149,16 @@ function setEvent() {
 	// 点击添加外部协同者按钮 弹出对话框 20170119 gy
 	$("#btnExternalAdd").click(function(){
 		btnExternalAdd_Click();
+	});
+	
+	//提交上传文件信息
+	$('#btnCommitFile').click(function() {
+		if($('#fileQueue').html()==""){
+			alert("文件上传后才可提交!");
+		}else{
+		// http_insert_task_files();
+			insertFileInfo();
+	}
 	});
 	
 	// 文件上传初始化

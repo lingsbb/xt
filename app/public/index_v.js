@@ -210,6 +210,28 @@ function showPushFrame(url,taskid){
 
 
 /**
+ * 根据id切换tab 和 iframe zqx
+ * @param id tabid
+ */
+function changePageById(id){
+	var tabs = $(".page-tabs-content > a");
+	var iframes = $("#content-main > iframe");
+	var realTab;
+	for(var i = 0;i<tabs.length;i++){
+		var tabid = $(tabs[i]).attr("data")
+		$(tabs[i]).attr("class"," J_menuTab");
+		$(iframes[i]).css("display","none");
+		if(tabid && tabid == id){
+			realTab = tabs[i];
+		}
+	}
+	if(realTab){
+		$(realTab).attr("class"," J_menuTab active");
+		$("#iframe"+id).css("display","inline");
+	}
+}
+
+/**
  * 获取新的tab 首页任务
  * @param taskid
  * @param url
