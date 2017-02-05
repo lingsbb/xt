@@ -99,7 +99,21 @@ function addTableRows (index, item) { //遍历返回的json
 	//添加基础数据
 	var s = "";
 	if (isstart == "0") {
-	 s='<tr>'+ '<td>'+(index+1)+'</td>'+
+	//  s='<tr>'+ '<td>'+(index+1)+'</td>'+
+	// '<td class="project-status">'+statusStr+'</td>'+
+	// 	'<td class="project-title">'+
+	// 	'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
+
+	// 	// '<a target="_self" onclick="toExecute('+taskid+')">'+cn+'</a>'+ //20170124 又不打开心页了
+	// 	//'<a target="_self" onclick="selectDetailByTaskid('+taskid+')">'+cn+'</a>'+ // 20170110改动 改成跳转
+	// 	' <br/>'+
+	// ' <small>创建于'+ createtime+'</small></td>'+
+	// '<td class="project-people" id="people'+index+'">发&nbsp;&nbsp;起&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;：<a data-toggle="tooltip" title="'+createuser+'"><span class="btn1  wenzi" style="background-color: #ed5565;margin-left:5px"><p style="margin-left: -8px;margin-top: -1px;">'+newcreateuser
+	// +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="deleteAllTaskDANGER('+taskid+');" class="btn btn-danger " style="height:30px;padding-top:2px;margin-top:-3px;"><span style="font-size:16px">删除<span></button>'+
+	// +'</p></span></a></td>'+
+	// '</tr>';
+
+	s='<tr>'+ '<td>'+(index+1)+'</td>'+
 	'<td class="project-status">'+statusStr+'</td>'+
 		'<td class="project-title">'+
 		'<a target="_self" onclick="gotoZhiXingYeMian('+taskid+','+shifoukedu+')">'+cn+'</a>'+
@@ -108,10 +122,12 @@ function addTableRows (index, item) { //遍历返回的json
 		//'<a target="_self" onclick="selectDetailByTaskid('+taskid+')">'+cn+'</a>'+ // 20170110改动 改成跳转
 		' <br/>'+
 	' <small>创建于'+ createtime+'</small></td>'+
-	'<td class="project-people" id="people'+index+'">发&nbsp;&nbsp;起&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;：<a data-toggle="tooltip" title="'+createuser+'"><span class="btn1  wenzi" style="background-color: #ed5565;margin-left:5px"><p style="margin-left: -8px;margin-top: -1px;">'+newcreateuser
-	+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="deleteAllTaskDANGER('+taskid+');" class="btn btn-danger " style="height:30px;padding-top:2px;margin-top:-3px;"><span style="font-size:16px">删除<span></button>'+
-	+'</p></span></a></td>'+
+	'<td class="project-people" id="people'+index+'">发&nbsp;&nbsp;起&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;：<a data-toggle="tooltip" title="'+createuser+'"><span class="btn1  wenzi" style="background-color: #ed5565;margin-left:5px"><p style="margin-left: -8px;margin-top: -1px;">'+newcreateuser+'</p></td>'
+	+'<td><button onclick="deleteAllTaskDANGER('+taskid+');" class="btn btn-danger " style="height:30px;padding-top:2px;margin-top:-3px;"><span style="font-size:16px">删除<span></button>'+
+	'</span></a></td>'+
 	'</tr>';
+
+
 
 	} else {
 		 s='<tr>'+ '<td>'+(index+1)+'</td>'+

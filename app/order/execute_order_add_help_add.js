@@ -64,6 +64,143 @@ function liaClick_out(email) {
  *  @param power 权限 编辑 1 只读 0
  * 	@param inOrOut 外部 1 内部 0
  */
+// function addContactWithPower(power, inOrOut) {
+	 
+// 	if(!inOrOut){ // 内部
+// 		var email = $("#oneInPeople").val();
+// 		if (!isEmail(email)) {
+// 			alert("邮箱格式不正确!");
+// 			return;
+// 		}
+// 	} else {
+// 		var email = $("#oneOutPeople").val();
+// 		if (!isEmail(email)) {
+// 			alert("邮箱格式不正确!");
+// 			return;
+// 		}
+// 	}
+
+// 	$.ajax({
+// 		url: '../soa_order',
+// 		type: 'post',
+// 		data: {
+// 			fun: 'addContactWithPower',
+// 			p1: _userId_v,
+// 			p2: email,
+// 			p3: _taskid,
+// 			p4: power,
+// 			p5: inOrOut
+// 		},
+// 		async: false,
+// 		timeout: 10000,
+// 		dataType: 'text',
+// 		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+// 		success: function (data) {
+// 			var jsonData = "";
+// 			try{
+
+// 				jsonData = JSON.parse(data).rs[0];
+// 				var result = jsonData.result;
+// 				var state = parseInt(jsonData.state);
+// 				switch(result){
+// 					case 1:// 添加协同人成功
+						
+// 						_changed_invitate += "," + jsonData.uid;
+// 						var is_need_contact = jsonData.isNeedContact;
+// 						var newBtn = "";
+// 						var name=jsonData.nickname ? jsonData.nickname : jsonData.email;
+// 						switch(jsonData.power){
+// 								case 1://拼装编辑按钮
+// 									newBtn = '<span id="selectedUser'+jsonData.uid+'" class="btn btn-green" disabled="disabled" style="margin:2px">'+name+'</span>&nbsp;';	
+// 									break;
+// 								case 0://拼装只读按钮
+// 									newBtn = '<span id="selectedUser'+jsonData.uid+'" class="btn btn-red" disabled="disabled" style="margin:2px">'+name+'</span>&nbsp;';
+// 									break;
+// 							}
+// 						if(!inOrOut){ // 内部协同人表格添加一条数据
+// 							addTableRows_selcet_task_people_p(jsonData);
+// 							$spanTaskWorker.append(newBtn);
+// 							$("#oneInPeople").val("");
+// 							if(is_need_contact){
+// 								_inUsers[jsonData.uid] = jsonData;
+// 								var rsEmialAndNickName = (jsonData.email ? jsonData.email : "匿名")+ "---" + (jsonData.nickname ? jsonData.nickname : "匿名");
+// 								var rsLi = "<li id="+"InLi"+jsonData.uid+"><a id="+ jsonData.uid +" onclick=liaClick('"+jsonData.email+"');>"+rsEmialAndNickName+"</a></li>";
+// 								$("#allInPeople").prepend(rsLi);//新版邀请里面的待选的内部协同者 ， 弹出窗口的下拉框
+// 							}
+
+// 						}else {//外部协同人表格添加一条数据
+// 							addTableRows_selcet_task_people_p_out(jsonData);
+// 							$spanFollower.append(newBtn);
+// 							$("#oneOutPeople").val("");
+// 							if(is_need_contact){
+// 								_outUsers[jsonData.uid] = jsonData;
+// 								var rsEmialAndNickName = (jsonData.email ? jsonData.email : "匿名")+ "---" + (jsonData.nickname ? jsonData.nickname : "匿名");
+// 								var rsLi = "<li id="+"InLi"+ jsonData.uid+"><a id="+ jsonData.uid +" onclick=liaClick_out('"+jsonData.email+"');>"+rsEmialAndNickName+"</a></li>";
+// 								$("#allOutPeople").prepend(rsLi);//新版邀请里面的待选的外部协同者 ， 弹出窗口的下拉框
+// 							}
+
+							
+// 						}
+
+
+
+						
+// 						//===============发送短信邮件JMS============================
+// 						_is_btnCommit='0';
+// 						var content= '有个新事项需要'+name+'协助!';
+// 						var phone=jsonData.phone;
+// 						var email_add=jsonData.email;
+// 						if (!phone){
+							
+// 						}else {
+// 							sendMsg(_taskid,_txtFormcn,phone);
+// 						}
+// 						http_insert_task_push_execute(content);//JMS
+// 						_is_btnCommit="0";
+// 						sendEmailAndContentJ(email_add,content);
+
+// 						//=========================================================
+// 						break;
+// 					case 0://失败
+// 						switch (state){
+// 							case 0:
+// 								alert("添加协同人失败!");
+// 								break;
+// 							case 3:
+// 								alert("不能添加自己为协同人!");
+// 								break;
+// 							case 4:
+// 								if(inOrOut){
+// 									alert("该用户已经是您的内部联系人!");
+// 								} else{
+// 									alert("该用户已经是您的外部联系人!");
+// 								}
+// 								break;																
+// 						}
+// 						break;
+// 					case -1://已经添加过
+// 						alert("该协同人已经存在,请不要重复添加!");
+// 						break;
+// 				}
+// 			}catch(e){
+
+// 			}
+			
+// 		},
+// 		error: function (e) {
+// 			console.log(e);
+// 		}
+// 	});
+// }
+
+
+
+
+/**
+ *  添加内部或者外部协同者的按钮点击事件
+ *  @param power 权限 编辑 1 只读 0
+ * 	@param inOrOut 外部 1 内部 0
+ */
 function addContactWithPower(power, inOrOut) {
 	 
 	if(!inOrOut){ // 内部
@@ -142,7 +279,27 @@ function addContactWithPower(power, inOrOut) {
 							
 						}
 
+						
 
+
+						// ===========给未激活的人发送短信 20170204 关宇===========START===========
+						// 获取这个人的创建时间
+						var json_activetime = jsonData.activetime;
+						// 如果创建时间是 1900-01-01 00:00:00 则是为未激活用户
+						if (json_activetime == "1900-01-01 00:00:00"){
+							// 获取这个用户的邮箱
+							var json_email = jsonData.email; 
+							// 如果邮箱不存在就不发送 反之发送
+							if(!json_email){ 
+								
+							}else {
+								btn_Activation_in_out(json_email,"没用站位的","没用站位的");
+							}
+							
+		 				} else {
+							
+		 				}
+						// ===========给未激活的人发送短信 20170204 关宇===========END===========
 
 						
 						//===============发送短信邮件JMS============================
@@ -160,6 +317,13 @@ function addContactWithPower(power, inOrOut) {
 						sendEmailAndContentJ(email_add,content);
 
 						//=========================================================
+
+
+
+						
+
+
+
 						break;
 					case 0://失败
 						switch (state){
@@ -248,7 +412,7 @@ function addTableRows_selcet_task_people_p (/*index,*/ item) { //遍历返回的
 	    '<td >'+email+'</td>'+
 	    '<td style="text-align:center">';
 		if (activetime == "1900-01-01 00:00:00"){
-			s += '	<button   id="btnActivation'+uid+'"  name="btnActivation'+uid+'" class="btn btn-warning" onclick="btn_Activation_in_out(\''+item.email+'\',\''+uid+'\',this);">激活</button>';
+			// s += '	<button   id="btnActivation'+uid+'"  name="btnActivation'+uid+'" class="btn btn-warning" onclick="btn_Activation_in_out(\''+item.email+'\',\''+uid+'\',this);">激活</button>';
 		 } else {
 		// 	s += '	<button class="btn btn-info" onclick="btn_Details(\'' + item.uid + '\');">详情</button>';
 		 }
@@ -296,7 +460,7 @@ function addTableRows_selcet_task_people_p_out ( item) { //遍历返回的json
 	    '<td >'+email+'</td>'+
 	    '<td style="text-align:center">';
 		if (activetime == "1900-01-01 00:00:00"){
-			s += '	<button   id="btnActivation'+uid+'"  name="btnActivation'+uid+'" class="btn btn-warning" onclick="btn_Activation_in_out(\''+item.email+'\',\''+uid+'\',this);">激活</button>';
+			// s += '	<button   id="btnActivation'+uid+'"  name="btnActivation'+uid+'" class="btn btn-warning" onclick="btn_Activation_in_out(\''+item.email+'\',\''+uid+'\',this);">激活</button>';
 		 } else {
 		// 	s += '	<button class="btn btn-info" onclick="btn_Details(\'' + item.uid + '\');">详情</button>';
 		 }
