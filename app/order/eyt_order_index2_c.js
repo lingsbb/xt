@@ -363,3 +363,11 @@ function btnUpdateQQ_click() {
 function btn_DetailsNew(orderid){
 	window.parent.enterMyDesktopWithNewTab(orderid);
 }
+
+
+/**
+ * 新写的 如果用户没有企业，进入完善信息页
+ */
+function enterMy(){
+	window.parent.enterMyInfo();
+}

@@ -136,8 +136,8 @@ function http_select_qiye_byuser(id1){
 					$('#modForm').modal('show');
 				}else{
 					//没有企业提示，并跳转完善信息页
-					 alert( "对不起，你不是企业用户，请完善个人企业信息！");
-						 window.location.href="../my/eyt_my_info";
+						alert( "对不起，你不是企业用户，请完善个人企业信息！");
+						enterMy();
 						
 				}
 				

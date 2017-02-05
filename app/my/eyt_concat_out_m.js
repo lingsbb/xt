@@ -82,6 +82,22 @@ function btn_Activation(email, outid, btn){
 	$(btn).text("正在发送邮件中。。。");
 	// var dizhi = g_invite_url+randomWord(false,6);
 	var dizhi = g_invite_url+email;
+
+
+
+	var htmlval = "";
+	htmlval += "<div>你好，您的帐号已经被成功创建！账号为本邮箱！</div>";
+	htmlval += "<br /><br /><br />";
+	htmlval	+= "<div>运易达将为您提供国际物流云协同系统、云文件存储、企业跨境支付、运踪实时查询等服务您的账户已经开通点击链接<a href="+dizhi+
+			">激活</a>即可进入 ，云易达将为您提供最便捷的国际物流体验或者复制链接到您的浏览器</div>";
+	htmlval += "<br /><br /><br />";
+	htmlval += "<div style="+"color: rgb(66,66,66);"+">为了提升您的用户体验, 我们的开发团队将定期发布新的功能, 敬请期待!</div>";
+	htmlval += "<div style="+"color: rgb(66,66,66);"+">如有任何问题，请访问我们的客服中心，或直接客户服务团队： EMAIL:eyt@rueyt.com</div>";
+	htmlval += "<div style="+"color: rgb(66,66,66);"+">我们非常期待与您的合作！</div>";
+	htmlval += "<br /><br /><br />";
+	htmlval += "<div style="+"text-align: right;"+">谨致问候</div>";
+	htmlval += "<br /><br /><br />";
+
 	$.ajax({
 		// url: '../sendEmailForJiHuo',
 		url: '../sendEmail',
@@ -89,7 +105,7 @@ function btn_Activation(email, outid, btn){
 		data: {
 	        p1: email,
 			p2: "激活",
-	        p3: dizhi
+	        p3: htmlval
 		},
 		async: true,
 		timeout : 10000, 

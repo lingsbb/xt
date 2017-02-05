@@ -218,3 +218,14 @@ function showPushFrame(url,taskid){
 function getNewTabindex(taskid,url){
 	return newTab = $("<a href=\"javascript:;\" class=\"active J_menuTab\" data=\""+taskid+"\" data-id=\""+url+"\">我的桌面"+taskid+"<i  class=\"fa fa-times-circle\"></i></a>");
 }
+
+
+/**
+ * 创建新订单 没有企业 获取新的 个人信息页
+ * @param taskid
+ * @param url
+ * @returns
+ */
+function getNewTabPerson(userid,url){
+	return newTab = $("<a href=\"javascript:;\" class=\"active J_menuTab\" data=\""+userid+"\" data-id=\""+url+"\">完善个人信息"+''+"<i  class=\"fa fa-times-circle\"></i></a>");
+}

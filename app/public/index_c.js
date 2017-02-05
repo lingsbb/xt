@@ -152,3 +152,15 @@ function closeTaskTabAndFrame(taskid){
 }
 
 
+/**
+ * 创建订单 没有企业 跳转 （完善个人信息页）
+ */
+function enterMyInfo(){ 
+	if(isTabExist(_userId_v)){
+		return;
+	}
+	var url ="../my/eyt_my_info";
+	var newTab = getNewTabPerson(_userId_v,url);
+	resetTab(newTab);
+	showPushFrame(url, _userId_v);
+}
