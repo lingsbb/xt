@@ -331,53 +331,32 @@
 
 <!--Input Start-->
 	
-							<div style="margin-bottom:50px">
-								
-								<label class=" control-label" style="font-size: 12px;margin-top:10px;float:left;margin-right:6px">请输入:</label>
-								
-								<div style="padding: 0px;width:70%;float:left">
-									<!--<form class="bs-example bs-example-form" role="form">-->
-										<div class="row">
-											<div class="col-lg-6">
-												<div class="input-group">
-													<div class="input-group-btn">
-														<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-															常用联系人 
-															<span class="caret"></span>
-														</button>
-														<ul id="allInPeople" class="dropdown-menu">
-															<!--<li><a>功能</a></li>
-															<li><a>另一个功能</a></li>
-															<li><a>其他</a></li>
-															<li class="divider"></li>
-															<li><a >分离的链接</a></li>-->
-														</ul>
-													</div><!-- /btn-group -->
-													<input id="oneInPeople" type="text" class="form-control" style="width:300%">
-												</div><!-- /input-group -->
-											</div><!-- /.col-lg-6 --><br>
-										</div><!-- /.row -->
-									<!--</form>-->
-								</div>
 
-
-								<!--<input  style="width: 50%;float:left;"  type="text" class="form-control input-sm " placeholder="请输入邮箱" required/>-->
-
-									
-								<div class="dropdown" style="float:left;margin-left:15px;margin-top:2px">
-									<button id="addContactInUserByJx" type="button" class="btn btn-info btn-sm" data-toggle="dropdown">添加</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="addContactInUserByJx">
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" onclick="addContactWithPower(1,0)">编辑</a>
-										</li>
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" onclick="addContactWithPower(0,0)">只读</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-
-					
+<!---->
+                                   <div class="col-sm-12" style="padding: 0px">
+                                    <div class="input-group m-b">
+                                        <label class=" control-label" style="font-size: 12px;margin-top:10px;float:left;margin-right:6px">请输入:</label>
+                                        <div class="input-group-btn">
+                                            <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" style="background-color: #a4a4a4;color:#fff">常用联系人<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" id="allInPeople">                                            
+                                            </ul>
+                                        </div>   
+                                        <input type="text" class="form-control" id="oneInPeople"> 
+										<span class="input-group-btn"> 
+										<button id="addContactInUserByJx" type="button" class="btn btn-info" data-toggle="dropdown" >添加</button>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="addContactInUserByJx">
+										       <li role="presentation">
+											   <a role="menuitem" tabindex="-1" onclick="addContactWithPower(1,0)">编辑</a>
+										       </li>
+										       <li role="presentation">
+											   <a role="menuitem" tabindex="-1" onclick="addContactWithPower(0,0)">只读</a>
+										       </li>
+									       </ul>
+                                     </span>
+                                    </div>
+                                    </div>
+<!---->					
 <!--Input End-->
 
 <!--Table Start===================================================================================================-->
@@ -1114,8 +1093,6 @@
 		<script type="text/javascript" src="../app/common/common_shandong.js"></script>
 		<script type="text/javascript" src="../app/common/cookies.js"></script>
 
-		<script src="../app/common/destination.js" charset="utf-8"></script><!--目的地-->
-		<script src="../js/bootstrap3-typeahead.js"></script><!--目的地-->
 		<script type="text/javascript" src="../app/order/execute_order_m.js"></script>
 		<script type="text/javascript" src="../app/order/execute_order_c.js"></script>
 		<script type="text/javascript" src="../app/order/execute_order_v.js"></script>
@@ -1131,7 +1108,9 @@
 		<script type="text/javascript" src="../app/order/execute_order_save.js"></script>
 		<script type="text/javascript" src="../app/order/execute_order_send_mail.js"></script>
 		<script type="text/javascript" src="../app/order/execute_order_send_problem.js"></script>
-
+		
+		<script src="../js/bootstrap3-typeahead.js"></script><!--目的地-->
+		<script src="../app/order/destination.js" charset="utf-8"></script><!--目的地-->
 		<script src="../js/plugins/pace/pace.min.js"></script>
 
 

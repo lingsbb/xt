@@ -39,8 +39,28 @@
 								<button id="btnUpdatePasswordInfo" name="btnUpdatePasswordInfo" class=" btn btn-info btn-xs">修改密码</button>-->
 							</div>
 						</div>
+
 						<div class="ibox-content">
-							<div class="form-horizontal m-t" id="signupForm">
+							<div class="form-horizontal m-t">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">邮箱：</label>
+									<div class="col-sm-8">
+										<input id="info_email" name="info_email" class="form-control" readonly="readonly" value="无" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">手机：</label>
+									<div class="col-sm-8">
+										<input id="info_phone" name="info_phone" class="form-control" readonly="readonly" value="无" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="ibox-content">
+							<!--要修改的表单-->
+							<form class="form-horizontal m-t" id="updateMyInfoForm">
 								<!-- 原来是form -->
 								<!--  
                             <div class="form-group">
@@ -50,77 +70,75 @@
                                 </div>
                             </div>
                           -->
-								<div class="form-group">
-									<label class="col-sm-3 control-label">邮箱：</label>
-									<div class="col-sm-8">
-										<input id="info_email" name="info_email" class="form-control" readonly="readonly" value="无" />
-									</div>
-								</div>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label">姓名：</label>
 									<div class="col-sm-8">
-										<input id="info_cn" name="info_cn" class="form-control" readonly="readonly" value="无" />
+										<input id="info_cn" name="info_cn" class="form-control" type="text" value="无"  placeholder="请输入姓名" required//>
 									</div>
-									<button id="btnUpdateCn" name="btnUpdateCn" class="btn btn-info">修改</button>
+									<!--<label class="col-sm-5 control-label">姓名错误信息：</label>-->
+									<!--<button id="btnUpdateCn" name="btnUpdateCn" class="btn btn-info">修改</button>-->
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label">昵称：</label>
 									<div class="col-sm-8">
-										<input id="info_nickname" name="info_nickname" class="form-control" readonly="readonly" value="无" />
+										<input id="info_nickname" name="info_nickname" class="form-control" type="text" value="无"   placeholder="请输入昵称" required/>
 									</div>
-									<button id="btnUpdateNickname" name="btnUpdateNickname" class="btn btn-info">修改</button>
+									<!--<label class="col-sm-5 control-label">昵称错误信息：</label>-->
+									<!--<button id="btnUpdateNickname" name="btnUpdateNickname" class="btn btn-info">修改</button>-->
 								</div>
 
-								<div class="form-group">
-									<label class="col-sm-3 control-label">手机：</label>
-									<div class="col-sm-8">
-										<input id="info_phone" name="info_phone" class="form-control" readonly="readonly" value="无" />
-									</div>
-
-								</div>
+								
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label">企业：</label>
 									<div class="col-sm-8">
-										<input id="info_qiye" name="info_qiye" class="form-control" readonly="readonly" value="无" />
+										<input id="info_qiye" name="info_qiye" class="form-control"  type="text" value="无"   placeholder="请输入企业" required />
 									</div>
-									<button id="btnUpdateQiye" name="btnUpdateQiye" class="btn btn-info">修改</button>
+									<!--<label class="col-sm-5 control-label">企业错误信息：</label>-->
+									<!--<button id="btnUpdateQiye" name="btnUpdateQiye" class="btn btn-info">修改</button>-->
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label">部门：</label>
 									<div class="col-sm-8">
-										<input id="info_department" name="info_department" class="form-control" readonly="readonly" value="无" />
+										<input id="info_department" name="info_department" class="form-control" type="text" value="无"  placeholder="请输入部门" required />
 									</div>
-									<button id="btnUpdateDepartment" name="btnUpdateDepartment" class="btn btn-info">修改</button>
+									<!--<label class="col-sm-5 control-label">部门错误信息：</label>-->
+									<!--<button id="btnUpdateDepartment" name="btnUpdateDepartment" class="btn btn-info">修改</button>-->
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label">QQ：</label>
 									<div class="col-sm-8">
-										<input id="info_QQ" name="info_QQ" class="form-control" readonly="readonly" value="无" />
+										<input id="info_QQ" name="info_QQ" class="form-control" type="text" value="无"  placeholder="请输入QQ" required />
 									</div>
-									<a id="btnUpdateQQ" name="btnUpdateQQ" class="btn btn-info">修改</a>
+									<!--<label class="col-sm-5 control-label">QQ错误信息：</label>-->
+									<!--<a id="btnUpdateQQ" name="btnUpdateQQ" class="btn btn-info">修改</a>-->
 
 								</div>
 
 								<div class="form-group">
-									<div class="col-sm-8 col-sm-offset-3">
+									<!--<div class="col-sm-8 col-sm-offset-3">
 
+									</div>-->
+									<div class="col-sm-9 col-sm-offset-4">
+										<button type="submit" class="btn btn-danger" id="btnUpdateNewMyInfo" name="btnUpdateNewMyInfo">修改</button>
+										<button type="button" class="btn btn-success" data-dismiss="modal">取消</button>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- dialog -->
+		<!--由于要弹出框所以下面都注视了-->
+		<!-- dialog  -->
 
-		<div class="modal inmodal fade" id="newNickname" tabindex="-1" role="dialog">
+		<!--<div class="modal inmodal fade" id="newNickname" tabindex="-1" role="dialog">
 			<div class="modal-dialog ">
 				<div class="modal-content">
 					<div class="modal-header" style="height: 40px;padding-top: 10px;">
@@ -134,9 +152,9 @@
 						<form id="updateNicknameForm" method="post" class="form-horizontal" action="">
 							<div class="form-group">
 								<label class="col-sm-4 control-label" for="textNewNickname">新昵称：</label>
-								<div class="col-sm-5">
+								<div class="col-sm-5">-->
 									<!-- <label for="email">	请输入正确的邮箱格式！</label>-->
-									<input type="text" class="form-control" id="textNewNickname" name="textNewNickname" placeholder="请输入昵称" required/>
+									<!--<input type="text" class="form-control" id="textNewNickname" name="textNewNickname" placeholder="请输入昵称" required/>
 								</div>
 							</div>
 							<div class="form-group">
@@ -148,9 +166,9 @@
 						</form>
 					</div>
 				</div>
-			</div>
+			</div>-->
 
-			<div class="modal inmodal fade" id="newQQ" tabindex="-1" role="dialog">
+			<!--<div class="modal inmodal fade" id="newQQ" tabindex="-1" role="dialog">
 				<div class="modal-dialog ">
 					<div class="modal-content">
 						<div class="modal-header" style="height: 40px;padding-top: 10px;">
@@ -164,10 +182,10 @@
 							<form id="updateQQForm" method="post" class="form-horizontal" action="">
 								<div class="form-group">
 									<label class="col-sm-4 control-label" for="textNewQQ">新QQ号码：</label>
-									<div class="col-sm-5">
+									<div class="col-sm-5">-->
 										<!--  
 									<label for="email">	请输入正确的邮箱格式！</label>-->
-										<input type="text" class="form-control" id="textNewQQ" name="textNewQQ" placeholder="请输入QQ号码" required/>
+										<!--<input type="text" class="form-control" id="textNewQQ" name="textNewQQ" placeholder="请输入QQ号码" required/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -179,9 +197,9 @@
 							</form>
 						</div>
 					</div>
-				</div>
+				</div>-->
 
-				<div class="modal inmodal fade" id="newCn" tabindex="-1" role="dialog">
+				<!--<div class="modal inmodal fade" id="newCn" tabindex="-1" role="dialog">
 					<div class="modal-dialog ">
 						<div class="modal-content">
 							<div class="modal-header" style="height: 40px;padding-top: 10px;">
@@ -195,9 +213,9 @@
 								<form id="updateCnForm" method="post" class="form-horizontal" action="">
 									<div class="form-group">
 										<label class="col-sm-4 control-label" for="textNewCn">新姓名：</label>
-										<div class="col-sm-5">
+										<div class="col-sm-5">-->
 											<!-- <label for="email">	请输入正确的邮箱格式！</label>-->
-											<input type="text" class="form-control" id="textNewCn" name="textNewCn" placeholder="请输入姓名" required/>
+											<!--<input type="text" class="form-control" id="textNewCn" name="textNewCn" placeholder="请输入姓名" required/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -209,9 +227,9 @@
 								</form>
 							</div>
 						</div>
-					</div>
+					</div>-->
 
-					<div class="modal inmodal fade" id="newQiye" tabindex="-1" role="dialog">
+					<!--<div class="modal inmodal fade" id="newQiye" tabindex="-1" role="dialog">
 						<div class="modal-dialog ">
 							<div class="modal-content">
 								<div class="modal-header" style="height: 40px;padding-top: 10px;">
@@ -225,10 +243,10 @@
 									<form id="updateQiyeForm" method="post" class="form-horizontal" action="">
 										<div class="form-group">
 											<label class="col-sm-4 control-label" for="textNewQiye">新企业名称：</label>
-											<div class="col-sm-5">
+											<div class="col-sm-5">-->
 												<!--  
 									<label for="email">	请输入正确的邮箱格式！</label>-->
-												<input type="text" class="form-control" id="textNewQiye" name="textNewQiye" placeholder="请输入企业名称" required/>
+												<!--<input type="text" class="form-control" id="textNewQiye" name="textNewQiye" placeholder="请输入企业名称" required/>
 											</div>
 										</div>
 										<div class="form-group">
@@ -240,9 +258,9 @@
 									</form>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
-						<div class="modal inmodal fade" id="newDepartment" tabindex="-1" role="dialog">
+						<!--<div class="modal inmodal fade" id="newDepartment" tabindex="-1" role="dialog">
 							<div class="modal-dialog ">
 								<div class="modal-content">
 									<div class="modal-header" style="height: 40px;padding-top: 10px;">
@@ -256,9 +274,9 @@
 										<form id="updateDepartmentForm" method="post" class="form-horizontal" action="">
 											<div class="form-group">
 												<label class="col-sm-4 control-label" for="textNewDepartment">新部门：</label>
-												<div class="col-sm-5">
+												<div class="col-sm-5">-->
 													<!-- <label for="email">	请输入正确的邮箱格式！</label>-->
-													<input type="text" class="form-control" id="textNewDepartment" name="textNewDepartment" placeholder="请输入部门" required/>
+													<!--<input type="text" class="form-control" id="textNewDepartment" name="textNewDepartment" placeholder="请输入部门" required/>
 												</div>
 											</div>
 											<div class="form-group">
@@ -270,7 +288,7 @@
 										</form>
 									</div>
 								</div>
-							</div>
+							</div>-->
 
 							<script src="../js/jquery.min.js"></script>
 							<script src="../ie_compatibility/placeholderfriend.js"></script>

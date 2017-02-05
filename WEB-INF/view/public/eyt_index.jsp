@@ -47,13 +47,17 @@
 							<!--class="img-circle"  -->
 
 							<a class="J_menuItem" href="../my/eyt_my_info">
-								<!-- 2016.12.05 gy --> <span class="clear"
-								style="text-align:center;margin-left:-70px;"> <img
-									alt="image" src="../img/logo_bai.png" style="width:100px" /> <span
-									class="block m-t-xs" id="userName"
-									style="font-weight: bold;text-align:center;"></span>
-
-							</span>
+								<!-- 2017.02.04 gy -->
+                                <span class="clear"style="text-align:center;margin-left:-70px;"> 
+                                    <img alt="image" src="../img/logo_bai.png" style="width:100px" /> 
+                                    <!--<span class="block m-t-xs" id="userName"style="font-weight: bold;text-align:center;"></span>-->
+                                    <span class="block m-t-xs" style="font-weight: bold;text-align:center;">个人信息</span>
+							    </span>
+                            </a>
+                                <!-- 2017.02.04 gy --> 
+                                <div >
+                                    <span id="userName" class="block m-t-xs" style="font-weight: bold;text-align:center; color:rgba(253, 190, 65, 1)"></span>
+							    </div>
 							</a>
 							<!--data-toggle="dropdown" class="dropdown-toggle"-->
 						</div>
